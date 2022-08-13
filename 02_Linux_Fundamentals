@@ -1,0 +1,44 @@
+File System Hierarchy:
+/ - TLDirectory
+/bin - Binaries
+/boot - Kernal and Files required to boot
+/dev - Device files for hardware
+/etc - Config Files both system and installed
+/home - User subdirs
+/lib - Libraries required for boot
+/opt - Optional files, another place for 3rd party installs
+/root - Root's home dir
+/sbin - Admin binary files
+/tmp - Temp files, usually wiped on boot or any other time
+/usr - Executables, libs, man files
+/var - Logs, Email Inboxes, Web App data, Cron files
+
+Shell:
+BASH is most common
+~ - Home
+$ - User
+# - Root
+man [tool] - Help
+[tool] --help - Help
+apropos [keyword] - Search MAN file with KeyWord
+
+Online resource for help: https://explainshell.com/
+
+Commands:
+hostname - Asset hostname >> Always check first for screenshot purposes
+whoami - Username >> Situational awareness for pen tester
+id - Users id / GUid >> Check what access user has (Look out for adm group to read logs, sudo to execute root commands, other non standard)
+uname - Basic info e.g. OS, Hardware >> Use -a to get all info such as Kernel, -r to get Kernel release to quick search for vulns
+pwd - Current dir
+ifconfig - Network interface info
+ip - Tool to manipulate IP info
+netstat - Show network status / sockets
+ss - Investigate sockets deeper
+ps - Process status
+who - whos logged in
+env - Prints the environment you're working in 
+ls - List all items in current folder
+lsblk - List block devices (drives, shares)
+lsusb- List USB devices
+lsof - List opened files
+lspci - List PCI devices
