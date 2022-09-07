@@ -1,0 +1,20 @@
+***USER MANAGEMENT***
+
+sudo - Execute command as a different user
+SU - Requests credentials from PAM and switches to that userID (by default superuser)
+
+useradd - Add a user
+userdel - Delete a user
+usermod - Modify a user
+
+addgroup - Add a group
+delgroup - Delete a group
+
+passwd - Change a password
+
+Look at the MAN pages to the above.
+One piece mentioned was for the "SU" function, use --command to execute a command
+
+
+
+***PACKAGE MANAGEMNET***
