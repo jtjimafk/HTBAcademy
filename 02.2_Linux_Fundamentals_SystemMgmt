@@ -60,3 +60,29 @@ strace -h
 
 
 *** SERVICE AND PROCESS MANAGEMENT ***
+Daemons - Services that run in the background, usually appended with d e.g. sshd
+Process ID - Can be found under /proc/
+
+SystemCTL
+Using SSH as an example:
+systemctl start ssh = Start Service
+systemctl status ssh = Check Status
+systemctl enable ssh = Enable Service on Startup
+ps -aux | grep ssh = Get PID
+systemctl list-units --type=service = List all services
+journalctl -u ssh.service --no-pager = View CTL Logs
+
+kill # - Kill a process
+pkill
+pgrep
+killall
+
+bg - send a process to the background
+& - Auto send a process to bg e.g. ping 8.8.8.8 &
+jobs - View jobs and ID's
+fg # - send a process to the background
+
+; or && or | - Execute multiple commands
+; - All commands execute even if one failes
+&& - If one failes the rest wont execute
+| - Relies on no failures and also another process to have happened prior (grepping logs for example, something needs to have generated the logs)
