@@ -86,3 +86,10 @@ fg # - send a process to the background
 ; - All commands execute even if one failes
 && - If one failes the rest wont execute
 | - Relies on no failures and also another process to have happened prior (grepping logs for example, something needs to have generated the logs)
+
+
+*** WORKING WITH WEB SERVICES ***
+Apache:
+apt install apache2 -y
+
+cURL - Transfer files from shell over HTTP, HTTPS, FTP, SFTP, FTPS, or SCP
