@@ -93,3 +93,7 @@ Apache:
 apt install apache2 -y
 
 cURL - Transfer files from shell over HTTP, HTTPS, FTP, SFTP, FTPS, or SCP
+Wget - Alt to cURL, to download from FTP or HTTP
+Python3 - Setup a web server to share files: python3 -m http.server
+nmp - Web server: http-server -p 8080
+php - Web server: php -S 127.0.0.1:8080
