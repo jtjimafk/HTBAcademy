@@ -1,0 +1,13 @@
+*** NAVIGATION ***
+
+pwd - Where you are
+ls - Whats in the current folder
+ls -a - Show hidden files
+ls -i - SHow index numbers of files
+ls /l /var/ - See whats in the var folder from elsewhere
+cd - Move directories
+cd - - Go back to last directory
+tab - complete path/name
+cd .. - Jump to parent directory
+
+*** CREATE, MOVE, COPY ***
