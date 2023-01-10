@@ -10,4 +10,75 @@ cd - - Go back to last directory
 tab - complete path/name
 cd .. - Jump to parent directory
 
-*** CREATE, MOVE, COPY ***
+
+
+*** Edit ***
+nano - Editor
+cat - Show in CLI
+vim - Editor but better
+vimtutor - VIM Tutorial
+
+
+
+***SEARCH***
+which [tool] e.g.cURL, netcat, wget, python, gcc
+find [location, for all use /] [options]
+  -type f	- By type, e.g. f = file
+  -name *.conf	- By name
+  -user root	- By owner
+  -size +20k -	By size
+  -newermt 2020-03-03	- By date
+  -exec ls -al {[command]} \; - Executes a command
+  2>/dev/null - no errors displayed
+  
+locate [tool] - Find command on steroids but limited filters
+sudo updatedb - Updates the local db for fresh locate results2020-03-03
+  
+f : a regular file.
+d : directory.
+l : symbolic link.
+c : character devices.
+b : block devices.
+p : named pipe (FIFO)
+s : socket.
+
+
+
+***FILE DESCRIPTORS***
+Data Stream for Input e.g. cat
+STDIN – 0
+Data Stream for Output e.g. find
+STDOUT – 1
+Data Stream for Output that relates to an error occurring.
+STDERR – 2
+
+Redirecting input/output to files:
+find /etc/ -name shadow 2> stderr.txt 1> stdout.txt
+
+Add to existing file using >>
+find /etc/ -name passwd >> stdout.txt 2>/dev/null
+
+Redirect STDIN to a file
+cat << EOF > stream.txt
+
+Use GREP to filter results
+find /etc/ -name *.conf 2>/dev/null | grep systemd
+
+Count how many are in the file
+find /etc/ -name *.conf 2>/dev/null | grep systemd | wc -l
+
+
+***FILTERS***
+more [file] - A way to scroll through results
+less [file] - Same as more but has "more" features
+head [file] - Print the first 10 lines
+tail [file] - Print the last 10 lines
+cat [file] | sort - Sort alphabetically
+cat [file] | grep "/bin/bash" - Filter results for /bin/bash
+cat [file] | grep -v "/bin/bash" - Filter results for everything other than /bin/bash
+cat /etc/passwd | grep -v "false\|nologin" | cut -d":" -f1 - CUT is a delimiter, set with -d and position defined with -f
+cat /etc/passwd | grep -v "false\|nologin" | tr ":" " " - FIND and REPLACE for file contents... Using tr first "" to find and second "" to replace
+cat /etc/passwd | grep -v "false\|nologin" | tr ":" " " | column -t - Do the above but split into columns
+cat /etc/passwd | grep -v "false\|nologin" | tr ":" " " | awk '{print $1, $NF}' - Do the above but only show first and last column
+cat /etc/passwd | grep -v "false\|nologin" | tr ":" " " | awk '{print $1, $NF}' | sed 's/bin/HTB/g' - FIND and REPLACE for whole files or STDIN using s to find and g to replace
+? wc -l - Word count
