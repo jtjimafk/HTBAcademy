@@ -1,0 +1,66 @@
+***NMAP***
+
+***HOST DISCOVERY***
+Syntax:
+nmap [scan type] [options] [target]
+
+Techniques:
+-sS/sT/sA/sW/sM: TCP SYN/Connect()/ACK/Window/Maimon scans
+-sU: UDP Scan
+-sN/sF/sX: TCP Null (disable port scanning), FIN, and Xmas scans
+--scanflags <flags>: Customize TCP scan flags
+-sI <zombie host[:probeport]>: Idle scan
+-sY/sZ: SCTP INIT/COOKIE-ECHO scans
+-sO: IP protocol scan
+-b <FTP relay host>: FTP bounce scan
+
+-oA [name] - Stores the scan with the name **It is recommended to store all scans
+e.g. -oA [name] | grep for | cut -d" " -f5
+
+
+-iL [list] - Scans against a list of IPs
+
+-PE - Performs a ICMP Echo Request (ping) only scan
+-Pn - Disable ping
+-n - Disable DNS Resolution
+--packet-trace - Shows all packets sent and recieved
+--reason - Can give you a reason a host was marked alive or dead, etc.
+--disable-arp-ping - So actualy ping results come back, not just arp pings
+
+https://nmap.org/book/host-discovery-strategies.html
+
+
+
+***HOST AND PORT SCANNING***
+
+**TCP***
+open - Connection established either via TCP, UDP or SCTP associations
+closed - Packet back was RST
+filtered - No response or error
+unfiltered - Only seen during TCP-ACK scan, port is accessible but can't figure out if opened or closed
+open|filtered - FW or Packet filter might be in place
+closed|filtered - Only in IP ID Idle scan, indicates impossible to know if closed or filtered
+
+-sS - Scans 1000 TCP defaults ports. Needs root
+-sT - Default no root - TCP Connect scan - 3 way handshake
+-p [x,x,x,x,x] - Define ports
+-p [x-xx] - Define port range
+--top-ports=[x] - Top x ports
+-F - Fast and top 100 ports
+
+--max-retries - default set to 1
+
+Looking at timing might be able to show you if something is in the way:
+SENT (0.0381s) - Nothing
+SENT (1.0411s) - Possible Firewall
+
+***UDP***
+-sU - UDP scan
+By default UDP will not respond unless configured to do so
+If ICMP response 3 comes back, we know the port is closed
+
+***SERVICES***
+-sV - Service scan
+
+
+https://nmap.org/book/man-port-scanning-techniques.html
