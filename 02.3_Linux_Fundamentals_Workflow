@@ -82,3 +82,47 @@ cat /etc/passwd | grep -v "false\|nologin" | tr ":" " " | column -t - Do the abo
 cat /etc/passwd | grep -v "false\|nologin" | tr ":" " " | awk '{print $1, $NF}' - Do the above but only show first and last column
 cat /etc/passwd | grep -v "false\|nologin" | tr ":" " " | awk '{print $1, $NF}' | sed 's/bin/HTB/g' - FIND and REPLACE for whole files or STDIN using s to find and g to replace
 ? wc -l - Word count
+
+
+***PERMISSIONS***
+r - read
+w - write
+e - execute
+
+- rwx rw- r--   1 root root 1641 May  4 23:42 /etc/passwd
+- --- --- ---   |  |    |    |   |__________|
+|  |   |   |    |  |    |    |        |_ Date
+|  |   |   |    |  |    |    |__________ File Size
+|  |   |   |    |  |    |_______________ Group
+|  |   |   |    |  |____________________ User
+|  |   |   |    |_______________________ Number of hard links
+|  |   |   |_ Permission of others (read)
+|  |   |_____ Permissions of the group (read, write)
+|  |_________ Permissions of the owner (read, write, execute)
+|____________ File type (- = File, d = Directory, l = Link, ... )
+
+chmod - Change permissions
+u - users
+g - groups
+o - others
+a - all users
++ - add
+- - remove
+
+e.g. chmod a+r [file]
+
+chmod can also use numbers
+Converter: https://superkogito.github.io/projects/chmod_converter.html
+
+444 - All users, R
+666 - All users, R, W
+777 - All users, R, W, E
+
+
+
+chown - Change owner
+chown [user]:[group] [file]
+e.g. chown root:root file.txt
+
+SUID - Set User ID
+GUID - Set Group ID
