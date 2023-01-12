@@ -117,3 +117,37 @@ Nmap Option	Description
 
 
 ***SAVING RESULTS***
+-oN - Normal .namp
+-oG - Grepable .gnmap
+-oX - XML
+-oA - All formats
+
+Tool: 
+xsltproc - Convert XML to HTML for reports
+e.g. xsltproc target.xml -o target.html
+
+
+***SERVICE ENUMERATION***
+-sV - Service version detection
+
+If there is a long scan can use the space bar to see status or
+--stats-every=#s or #m 
+
+-v - Verbose
+-vv - Very Verbose
+
+Banner Grabbing
+Nmap grabs banned to service detect but does not show this to us.
+To see this information, which can be very helpful Connecting to the host on that port using "nc" and grabbing the info using tcpdump
+sudo tcpdump -i eth0 host 10.10.14.2 and 10.129.2.28
+nc -nv 10.129.2.28 25
+
+Usually looking for PSH flags (Flags [P.]) it can send extra info like the OS:
+SMTP: 220 inlane ESMTP Postfix (Ubuntu)
+
+Flags:
+[S] = SYN
+[.] - ACK
+[S.] - SYN ACK
+[P] = PSH
+[P.] = PSH ACK
