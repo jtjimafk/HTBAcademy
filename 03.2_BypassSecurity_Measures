@@ -1,0 +1,9 @@
+***FIREWALL and IPS/IDS Evasion***
+
+-D - Decoy, NMAP generates random IP's and adds to its header.
+RND:[number] - Random IP#s but specific amount - Attacker IP will be part of that
+For decoy's to work the IP's must be active
+
+-S [IP] - Specify IP you want to impersonate
+--source-port [number] 
+--dns-server [ns], [sns]
