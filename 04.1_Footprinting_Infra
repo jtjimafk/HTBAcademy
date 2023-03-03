@@ -1,0 +1,89 @@
+Active (scans) and Passive (3rd party) enumeration
+Info can be gathered from many sources, e.g. IP, Domains, Services.
+
+Looking for informaiton such as:
+Company structure
+Services
+3rd Party vendors
+Security Measures
+
+Goal is not to get to the systems, but to identify all the ways to get there.
+What can we see?
+What reasons can we have for seeing it?
+What image does what we see create for us?
+What do we gain from it?
+How can we use it?
+What can we not see?
+What reasons can there be that we do not see?
+What image results for us from what we do not see?
+
+No.	Principle
+1.	There is more than meets the eye. Consider all points of view.
+2.	Distinguish between what we see and what we do not see.
+3.	There are always ways to gain more information. Understand the target.
+
+
+
+#####################################################################################
+
+Enumeration methodology
+
+Broken into 3 levels:
+1. Infrastructure Based
+2. Host Based
+3. OS Based
+
+Each layer has 2 levels with 6 layers that are interchangable.
+Image here:
+https://www.thomasoleary.ie/2023/03/enumeration-methodology.html
+
+Invision the layers as a wall, we have to figure out how to climb over it/get around it/find a gap in
+
+These layers are designed as follows:
+
+Layer	                    Description	                                                                                                  Information Categories
+1. Internet Presence	    Identification of internet presence and externally accessible infrastructure.	                                Domains, Subdomains, vHosts, ASN, Netblocks, IP Addresses, Cloud Instances, Security Measures
+2. Gateway	              Identify the possible security measures to protect the company's external and internal infrastructure.	      Firewalls, DMZ, IPS/IDS, EDR, Proxies, NAC, Network Segmentation, VPN, Cloudflare
+3. Accessible Services	  Identify accessible interfaces and services that are hosted externally or internally.	                        Service Type, Functionality, Configuration, Port, Version, Interface
+4. Processes	            Identify the internal processes, sources, and destinations associated with the services.	                    PID, Processed Data, Tasks, Source, Destination
+5. Privileges	            Identification of the internal permissions and privileges to the accessible services.	                        Groups, Users, Permissions, Restrictions, Environment
+6. OS Setup	              Identification of the internal components and systems setup.	                                                OS Type, Patch Level, Network config, OS Environment, Configuration files, sensitive private files
+
+
+
+Layer 1: Internet Presence
+Focus on identifying the targets we can investigate
+Scope of test depending
+Looking for:
+- Domains
+- Subdomains
+- Netblocks
+- Other
+The goal of this layer is to identify all possible target systems and interfaces that can be tested.
+
+Layer 2: Gateway
+Understand the interface
+How is it protected?
+Where in the network is it located?
+The goal is to understand what we are dealing with and what we have to watch out for.
+
+Layer 3: Accessible Services
+Each service is exposed for a particular reason.
+Learn the service and figure out why it is exposed
+This layer aims to understand the reason and functionality of the target system and gain the necessary knowledge to communicate with it and exploit it for our purposes effectively.
+
+Layer 4: Processes
+Each action is a process.
+Understadning the specific task, source and destination is key
+The goal here is to understand these factors and identify the dependencies between them.
+
+Layer 5: Privileges
+Each services runs from a specific user/group with specific rights/privileges
+Privileges can often be over looked by administrators and capatilising on this is a for of enumeration
+It is crucial to identify these and understand what is and is not possible with these privileges.
+
+Layer 6: OS Setup
+Collect info from the OS
+Security Tools installed, etc.
+The goal here is to see how the administrators manage the systems and what sensitive internal information we can glean from them.
+
